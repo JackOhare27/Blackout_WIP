@@ -14,7 +14,7 @@ public class MouseController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // Update is called once per frame
+
     void LateUpdate()
     {
         float MouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
@@ -33,4 +33,6 @@ public class MouseController : MonoBehaviour
 
         
     }
+
+   
 }
