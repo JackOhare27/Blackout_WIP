@@ -8,6 +8,7 @@ public class MouseController : MonoBehaviour
     public Transform playerTransform;
     public float mouseSensitivity = 100f;
     private float xRotation = 0f;
+    private bool isCrouching = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +31,16 @@ public class MouseController : MonoBehaviour
         //Controls the y movement
         playerTransform.Rotate(Vector3.up * MouseX);
 
-
+        //Crouching
+        if(Input.GetKeyDown(KeyCode.LeftShift) && isCrouching == false)
+        {
+            transform.position -= new Vector3(0f, .5f, 0f);
+            isCrouching = true;
+        } else if (Input.GetKeyUp(KeyCode.LeftShift) && isCrouching == true)
+        {
+            transform.position += new Vector3(0f, .5f, 0f);
+            isCrouching = false;
+        }
         
     }
 

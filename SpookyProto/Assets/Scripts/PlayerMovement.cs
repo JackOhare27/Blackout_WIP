@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-  
+    public List<GameObject> toShrink = new List<GameObject>();
     public float moveSpeed;
     private float forwardInput;
     private float sidewaysInput;
+    private Vector3 Crouch = new Vector3(0f, 0.5f, 0f);
     // Start is called before the first frame update
     void Start()
     {
@@ -22,5 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
         transform.Translate(Vector3.forward * forwardInput * Time.deltaTime);
         transform.Translate(Vector3.right * sidewaysInput * Time.deltaTime);
+
+        
     }
 }
